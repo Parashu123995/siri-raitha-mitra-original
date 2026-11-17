@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIRI RAITHA MITRA AI</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#f2f8f0;
+ color:#183b24;
+}
+header{
+ background:#126b35;
+ color:white;
+ padding:22px 15px;
+ text-align:center;
+}
+header h1{margin:0;font-size:25px}
+header p{margin:8px 0 0}
+.hero{
+ background:#e0f2df;
+ text-align:center;
+ padding:30px 15px;
+}
+.hero h2{color:#126b35}
+.container{padding:16px;max-width:850px;margin:auto}
+.card{
+ background:white;
+ padding:18px;
+ margin:13px 0;
+ border-radius:14px;
+ box-shadow:0 2px 8px #0001;
+}
+.card h3{color:#126b35;margin-top:0}
+button{
+ background:#168343;
+ color:white;
+ border:0;
+ border-radius:9px;
+ padding:12px 18px;
+ font-size:16px;
+ cursor:pointer;
+}
+button:hover{background:#0d592b}
+input,select{
+ padding:12px;
+ width:100%;
+ margin:9px 0;
+ border:1px solid #ccc;
+ border-radius:8px;
+}
+.feature{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+}
+.feature div{
+ background:#fff;
+ padding:17px 8px;
+ text-align:center;
+ border-radius:12px;
+}
+footer{
+ background:#126b35;
+ color:white;
+ text-align:center;
+ padding:20px;
+ margin-top:25px;
+}
+#preview{max-width:100%;margin-top:12px;border-radius:10px}
+@media(max-width:450px){
+ .feature{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🌾 SIRI RAITHA MITRA AI</h1>
+<p>ರೈತರ ಸ್ನೇಹಿತ – ಸ್ಮಾರ್ಟ್ ಕೃಷಿ ಸಹಾಯಕ</p>
+</header>
+
+<section class="hero">
+<h2>ನಮ್ಮ ರೈತರಿಗೆ ಸ್ಮಾರ್ಟ್ ಕೃಷಿ ಸೇವೆ</h2>
+<p>AI ತಂತ್ರಜ್ಞಾನದ ಮೂಲಕ ಕೃಷಿಗೆ ಹೊಸ ದಾರಿ</p>
+<button onclick="document.getElementById('services').scrollIntoView()">
+ಸೇವೆಗಳು ನೋಡಿ
+</button>
+</section>
+
+<div class="container">
+
+<div class="card">
+<h3>👨‍🌾 ರೈತರ ನೋಂದಣಿ</h3>
+<input id="farmerName" placeholder="ರೈತರ ಹೆಸರು">
+<input id="mobile" type="tel" placeholder="ಮೊಬೈಲ್ ಸಂಖ್ಯೆ">
+<input id="village" placeholder="ಗ್ರಾಮದ ಹೆಸರು">
+<button onclick="registerFarmer()">ನೋಂದಣಿ ಮಾಡಿ</button>
+<p id="registerMessage"></p>
+</div>
+
+<div class="card">
+<h3>🤖 AI ಬೆಳೆ ವೈದ್ಯ</h3>
+<p>ನಿಮ್ಮ ಬೆಳೆಯ ಫೋಟೋ ಆಯ್ಕೆ ಮಾಡಿ.</p>
+<input type="file" id="cropImage" accept="image/*" onchange="showImage(event)">
+<img id="preview" style="display:none">
+<p id="aiMessage">ಫೋಟೋ ಆಯ್ಕೆ ಮಾಡಿದ ನಂತರ AI ಪರೀಕ್ಷೆಯ ಮುಂದಿನ ಹಂತಕ್ಕೆ ಹೋಗಬಹುದು.</p>
+<button onclick="startAI()">ಬೆಳೆ ಪರೀಕ್ಷೆ</button>
+</div>
+
+<div id="services" class="card">
+<h3>🌱 ನಮ್ಮ ಕೃಷಿ ಸೇವೆಗಳು</h3>
+<div class="feature">
+<div>🌦️<br>ಹವಾಮಾನ ಮಾಹಿತಿ</div>
+<div>🏛️<br>ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು</div>
+<div>🌾<br>ಕೃಷಿ ಸಲಹೆಗಳು</div>
+<div>🛒<br>ಕೃಷಿ ಮಾರುಕಟ್ಟೆ</div>
+<div>📚<br>ಕೃಷಿ ಶಿಕ್ಷಣ</div>
+<div>🎥<br>ಕೃಷಿ ವಿಡಿಯೋ</div>
+<div>🛍️<br>ಉತ್ಪನ್ನಗಳ ಮಾರಾಟ</div>
+<div>🌐<br>ಬಹುಭಾಷಾ ಸೇವೆ</div>
+</div>
+</div>
+
+<div class="card">
+<h3>📦 ಆರ್ಡರ್ ಮತ್ತು ಪಾವತಿ</h3>
+<p>ಕೃಷಿ ಉತ್ಪನ್ನಗಳ ಖರೀದಿ ಮತ್ತು ಮಾರಾಟ ವ್ಯವಸ್ಥೆ.</p>
+</div>
+
+<div class="card">
+<h3>⭐ Subscription</h3>
+<p>ರೈತರಿಗೆ ವಿಶೇಷ ಸದಸ್ಯತ್ವ ಸೇವೆಗಳು.</p>
+</div>
+
+<div class="card">
+<h3>⚙️ Admin Dashboard</h3>
+<p>ಆಪ್ ನಿರ್ವಹಣೆ ಮತ್ತು ರೈತರ ಸೇವೆಗಳ ವಿಭಾಗ.</p>
+</div>
+
+</div>
+
+<footer>
+<h3>SIRI RAITHA MITRA AI</h3>
+<p>ರೈತರ ಅಭಿವೃದ್ಧಿಯೇ ನಮ್ಮ ಗುರಿ ❤️</p>
+<p>© 2026 SIRI RAITHA MITRA</p>
+</footer>
+
+<script>
+function registerFarmer(){
+ let name=document.getElementById("farmerName").value;
+ let mobile=document.getElementById("mobile").value;
+ let village=document.getElementById("village").value;
+
+ if(!name || !mobile || !village){
+ alert("ದಯವಿಟ್ಟು ಎಲ್ಲಾ ವಿವರಗಳನ್ನು ತುಂಬಿ");
+ return;
+ }
+ document.getElementById("registerMessage").innerText=
+ "ಧನ್ಯವಾದಗಳು "+name+"! ನೋಂದಣಿ ಫಾರ್ಮ್ ಸಿದ್ಧವಾಗಿದೆ.";
+}
+
+function showImage(event){
+ let file=event.target.files[0];
+ if(!file)return;
+ let img=document.getElementById("preview");
+ img.src=URL.createObjectURL(file);
+ img.style.display="block";
+ document.getElementById("aiMessage").innerText=
+ "ಫೋಟೋ ಆಯ್ಕೆಯಾಗಿದೆ. AI ಸಂಪರ್ಕ ಇನ್ನೂ ಮಾಡಬೇಕಿದೆ.";
+}
+
+function startAI(){
+ let file=document.getElementById("cropImage").files[0];
+ if(!file){
+ alert("ಮೊದಲು ಬೆಳೆಯ ಫೋಟೋ ಆಯ್ಕೆ ಮಾಡಿ");
+ return;
+ }
+ alert("ಫೋಟೋ ಸಿದ್ಧವಾಗಿದೆ. ಮುಂದಿನ ಹಂತದಲ್ಲಿ ನಿಜವಾದ AI ಸಂಪರ್ಕ ಮಾಡೋಣ.");
+}
+</script>
+
+</body>
+</html>
